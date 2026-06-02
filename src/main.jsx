@@ -537,7 +537,6 @@ function App() {
               <button className="button primary" type="submit" disabled={!messageForm.name.trim() || !messageForm.content.trim()}>
                 发布留言 <Send size={16} />
               </button>
-              <p>当前为本地预览版，留言会保存在你的浏览器中；上线后可接入 Cloudflare D1 变成公开留言板。</p>
             </form>
 
             <div className="message-list" aria-live="polite">
