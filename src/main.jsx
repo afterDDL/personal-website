@@ -385,7 +385,7 @@ function App() {
             <div className="section-heading split-heading">
               <div>
                 <p className="eyebrow">Feedback Report</p>
-                <h3>不把长报告塞满页面，而是展示它如何帮助用户复盘。</h3>
+                <h3>报告结构完整，能把评分、问题定位和逐题改进建议串成清晰复盘。</h3>
               </div>
               <a className="button secondary compact" href={REPORT_URL} target="_blank" rel="noreferrer">
                 查看完整 PDF <ArrowUpRight size={16} />
