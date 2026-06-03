@@ -136,6 +136,7 @@ const profileSignals = [
 function App() {
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
   const [copied, setCopied] = useState('');
+  const [activeScreen, setActiveScreen] = useState(0);
   const [siteLikes, setSiteLikes] = useState(() => Number(localStorage.getItem(SITE_LIKES_KEY) || 0));
   const [messages, setMessages] = useState(() => {
     try {
@@ -204,6 +205,14 @@ function App() {
       minute: '2-digit',
     }).format(new Date(isoDate));
   };
+
+  const changeScreen = (direction) => {
+    setActiveScreen((current) => (
+      current + direction + productScreens.length
+    ) % productScreens.length);
+  };
+
+  const currentScreen = productScreens[activeScreen];
 
   return (
     <>
@@ -332,18 +341,43 @@ function App() {
 
           <div className="case-layout">
             <article className="case-main">
-              <div className="case-cover screenshot-cover" aria-label="SpeakEasy 产品截图">
-                <div className="screen-showcase">
-                  {productScreens.map((screen) => (
-                    <figure className="screen-card" key={screen.title}>
-                      <img src={screen.src} alt={`SpeakEasy ${screen.title}截图`} loading="lazy" />
-                      <figcaption>
-                        <strong>{screen.title}</strong>
-                        <span>{screen.note}</span>
-                      </figcaption>
-                    </figure>
-                  ))}
-                </div>
+              <div className="case-cover screenshot-cover" aria-label="SpeakEasy 产品截图轮播">
+                <figure className="screen-carousel">
+                  <img src={currentScreen.src} alt={`SpeakEasy ${currentScreen.title}截图`} />
+                  <button
+                    className="screen-nav prev"
+                    type="button"
+                    onClick={() => changeScreen(-1)}
+                    aria-label="查看上一张截图"
+                  >
+                    <ChevronRight size={22} />
+                  </button>
+                  <button
+                    className="screen-nav next"
+                    type="button"
+                    onClick={() => changeScreen(1)}
+                    aria-label="查看下一张截图"
+                  >
+                    <ChevronRight size={22} />
+                  </button>
+                  <figcaption>
+                    <div>
+                      <strong>{currentScreen.title}</strong>
+                      <span>{currentScreen.note}</span>
+                    </div>
+                    <div className="screen-dots" aria-label="截图分页">
+                      {productScreens.map((screen, index) => (
+                        <button
+                          key={screen.title}
+                          type="button"
+                          className={index === activeScreen ? 'active' : ''}
+                          onClick={() => setActiveScreen(index)}
+                          aria-label={`查看${screen.title}截图`}
+                        />
+                      ))}
+                    </div>
+                  </figcaption>
+                </figure>
               </div>
               <div className="case-text">
                 <p>
