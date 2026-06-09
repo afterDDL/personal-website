@@ -816,6 +816,163 @@ h3 {
   margin-top: 54px;
 }
 
+.talent-project {
+  padding-top: 84px;
+}
+
+.talent-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+  gap: 56px;
+  align-items: end;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 34px 0;
+}
+
+.project-index {
+  display: block;
+  margin-bottom: 16px;
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 760;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.talent-intro h3 {
+  max-width: 720px;
+  margin: 0 0 16px;
+  font-size: clamp(28px, 4vw, 46px);
+  line-height: 1.12;
+}
+
+.talent-intro p {
+  max-width: 760px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.talent-intro dl {
+  display: grid;
+  gap: 0;
+  margin: 0;
+}
+
+.talent-intro dl div {
+  display: grid;
+  grid-template-columns: 62px 1fr;
+  gap: 16px;
+  border-top: 1px solid var(--line);
+  padding: 14px 0;
+}
+
+.talent-intro dl div:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.talent-intro dt {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.talent-intro dd {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.talent-carousel {
+  overflow: hidden;
+  margin: 28px 0 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 24px 64px rgba(20, 24, 28, 0.12);
+}
+
+.talent-screen {
+  position: relative;
+  overflow: hidden;
+  background: #eef1f6;
+}
+
+.talent-screen img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.talent-carousel figcaption {
+  display: flex;
+  min-height: 84px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  border-top: 1px solid var(--line);
+  padding: 16px 20px;
+}
+
+.talent-carousel figcaption > div:first-child {
+  display: grid;
+  gap: 5px;
+}
+
+.talent-carousel figcaption strong {
+  font-size: 18px;
+}
+
+.talent-carousel figcaption span {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.talent-result-strip {
+  display: grid;
+  grid-template-columns: 0.55fr 0.65fr 1fr 1.45fr;
+  gap: 0;
+  margin-top: 18px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.talent-result-strip > div {
+  display: grid;
+  align-content: center;
+  gap: 3px;
+  min-height: 98px;
+  border-right: 1px solid var(--line);
+  padding: 18px 20px;
+}
+
+.talent-result-strip strong {
+  color: var(--primary);
+  font-size: 25px;
+}
+
+.talent-result-strip span,
+.talent-result-strip p {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.talent-result-strip p {
+  align-self: center;
+  margin: 0;
+  padding: 18px 22px;
+}
+
+.talent-highlights {
+  margin-top: 18px;
+}
+
 .report-section {
   margin-top: 54px;
 }
@@ -1297,6 +1454,7 @@ h3 {
   .hero,
   .about-layout,
   .case-layout,
+  .talent-intro,
   .contact-panel,
   .guestbook-layout {
     grid-template-columns: 1fr;
@@ -1330,6 +1488,20 @@ h3 {
 
   .report-layout {
     grid-template-columns: 1fr;
+  }
+
+  .talent-intro {
+    gap: 28px;
+    align-items: start;
+  }
+
+  .talent-result-strip {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .talent-result-strip p {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--line);
   }
 }
 
@@ -1405,6 +1577,42 @@ h3 {
   .screen-carousel figcaption {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .talent-project {
+    padding-top: 72px;
+  }
+
+  .talent-intro {
+    padding: 26px 0;
+  }
+
+  .talent-intro h3 {
+    font-size: 29px;
+  }
+
+  .talent-screen img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .talent-carousel figcaption {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .talent-result-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .talent-result-strip > div {
+    min-height: 82px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .talent-result-strip p {
+    grid-column: auto;
+    border-top: 0;
   }
 
   .screen-nav {

@@ -72,10 +72,10 @@ const timeline = [
   },
   {
     year: '2026',
-    title: 'MCM 建模竞赛与 SpeakEasy 产品实践',
-    place: 'MCM H 奖 / 雅思口语 AI 陪练',
+    title: 'MCM 建模竞赛与 AI 产品实践',
+    place: 'MCM H 奖 / SpeakEasy / TalentBridge',
     tag: 'Product Building',
-    text: '获得美国大学生数学建模竞赛 H 奖，负责 Python 数据处理、仿真与可视化；随后独立完成 SpeakEasy 的产品设计、前端实现和上线内测，并基于反馈持续迭代。',
+    text: '获得美国大学生数学建模竞赛 H 奖，负责 Python 数据处理、仿真与可视化；随后独立完成 SpeakEasy 与 TalentBridge，从学习场景和招聘场景出发完成产品设计、开发、部署与验证。',
   },
 ];
 
@@ -117,6 +117,31 @@ const productScreens = [
   { title: '设置页', src: '/assets/speakeasy-settings.jpg', note: '语音参数与常见问题说明' },
 ];
 
+const talentScreens = [
+  { title: '人才研察工作台', src: '/assets/talentbridge-workbench.png', note: '从岗位项目进入，集中呈现候选人规模、AI 增量召回和待复核进度。' },
+  { title: '岗位能力校准', src: '/assets/talentbridge-calibration.png', note: '把 JD 与招聘经理的隐性判断转化为可编辑、可复用的岗位能力模型。' },
+  { title: '人才复核队列', src: '/assets/talentbridge-queue.png', note: '按证据强度和迁移价值组织候选人，并明确区分 ATS 命中与 AI 新找回。' },
+  { title: 'ATS 与 AI 效果评估', src: '/assets/talentbridge-evaluation.png', note: '使用独立人工标注计算召回率、精确率和复核成本，避免 AI 自证效果。' },
+];
+
+const talentHighlights = [
+  {
+    icon: Workflow,
+    title: '能力迁移模型',
+    text: '不只匹配岗位关键词，而是从业务任务、工作方法、问题复杂度、责任范围和结果证据五个维度理解候选人。',
+  },
+  {
+    icon: PanelsTopLeft,
+    title: '可解释 AI 判断',
+    text: '将简历事实、AI 推断和待验证信息分开呈现，每项建议都能回到证据、缺口与验证问题。',
+  },
+  {
+    icon: Check,
+    title: '人机共同决策',
+    text: 'AI 负责扩大召回、排序和解释，最终联系、保留或淘汰仍由招聘人员完成。',
+  },
+];
+
 const reportMetrics = [
   { label: '综合评分', value: '6.5' },
   { label: '参考 Band', value: '7' },
@@ -137,6 +162,7 @@ function App() {
   const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
   const [copied, setCopied] = useState('');
   const [activeScreen, setActiveScreen] = useState(0);
+  const [activeTalentScreen, setActiveTalentScreen] = useState(0);
   const [siteLikes, setSiteLikes] = useState(() => Number(localStorage.getItem(SITE_LIKES_KEY) || 0));
   const [messages, setMessages] = useState(() => {
     try {
@@ -213,6 +239,13 @@ function App() {
   };
 
   const currentScreen = productScreens[activeScreen];
+  const currentTalentScreen = talentScreens[activeTalentScreen];
+
+  const changeTalentScreen = (direction) => {
+    setActiveTalentScreen((current) => (
+      current + direction + talentScreens.length
+    ) % talentScreens.length);
+  };
 
   return (
     <>
@@ -478,6 +511,96 @@ function App() {
                 </article>
               ))}
             </div>
+          </div>
+        </section>
+
+        <section className="section talent-project" aria-labelledby="talentbridge-title">
+          <div className="section-heading split-heading">
+            <div>
+              <p className="eyebrow">Case Study 02 · Recruiting Intelligence</p>
+              <h2 id="talentbridge-title">TalentBridge：AI 高端人才迁移识别助手</h2>
+            </div>
+            <div className="heading-actions">
+              <a
+                className="button secondary compact"
+                href="https://talentbridge-production-1a40.up.railway.app"
+                target="_blank"
+                rel="noreferrer"
+              >
+                在线体验 <ExternalLink size={16} />
+              </a>
+            </div>
+          </div>
+
+          <div className="talent-intro">
+            <div>
+              <span className="project-index">02 / Talent Intelligence</span>
+              <h3>找到关键词之外，真正值得被看见的人。</h3>
+              <p>
+                在 AI 芯片招聘实践中，我发现传统 ATS 容易漏掉“岗位名称不同、底层能力相通”的候选人。TalentBridge 将资深招聘人员依赖经验完成的判断过程结构化，帮助 HR 理解候选人做过什么，以及这些经验还能迁移到哪里。
+              </p>
+            </div>
+            <dl>
+              <div><dt>场景</dt><dd>中高端社招 / 陌生行业猎聘</dd></div>
+              <div><dt>角色</dt><dd>独立产品设计与全栈实现</dd></div>
+              <div><dt>技术</dt><dd>Node.js · OpenAI / DeepSeek · Railway</dd></div>
+            </dl>
+          </div>
+
+          <figure className="talent-carousel">
+            <div className="talent-screen">
+              <img src={currentTalentScreen.src} alt={`TalentBridge ${currentTalentScreen.title}截图`} />
+              <button
+                className="screen-nav prev"
+                type="button"
+                onClick={() => changeTalentScreen(-1)}
+                aria-label="查看上一张 TalentBridge 截图"
+              >
+                <ChevronRight size={22} />
+              </button>
+              <button
+                className="screen-nav next"
+                type="button"
+                onClick={() => changeTalentScreen(1)}
+                aria-label="查看下一张 TalentBridge 截图"
+              >
+                <ChevronRight size={22} />
+              </button>
+            </div>
+            <figcaption>
+              <div>
+                <strong>{currentTalentScreen.title}</strong>
+                <span>{currentTalentScreen.note}</span>
+              </div>
+              <div className="screen-dots" aria-label="TalentBridge 截图分页">
+                {talentScreens.map((screen, index) => (
+                  <button
+                    key={screen.title}
+                    type="button"
+                    className={index === activeTalentScreen ? 'active' : ''}
+                    onClick={() => setActiveTalentScreen(index)}
+                    aria-label={`查看${screen.title}截图`}
+                  />
+                ))}
+              </div>
+            </figcaption>
+          </figure>
+
+          <div className="talent-result-strip">
+            <div><strong>8</strong><span>示例候选人</span></div>
+            <div><strong>3</strong><span>AI 增量找回</span></div>
+            <div><strong>40% → 100%</strong><span>人工标注样本召回率</span></div>
+            <p>演示数据用于验证产品逻辑，不代表真实业务效果承诺。</p>
+          </div>
+
+          <div className="highlight-grid talent-highlights">
+            {talentHighlights.map(({ icon: Icon, title, text }) => (
+              <article className="highlight-card" key={title}>
+                <Icon size={22} />
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
+            ))}
           </div>
         </section>
 
