@@ -283,6 +283,9 @@ function App() {
             <p className="hero-text">
               我是石夏宁 Nina Shi，吉林大学经济学专业学生。关注真实学习场景中的低效环节，并尝试用 AI、产品设计和前端实现，把想法做成可被使用和验证的产品。
             </p>
+            <p className="hero-contact-note">
+              需要我的完整简历或更多项目细节，请添加微信 <strong>{WECHAT}</strong> 并说明来意。
+            </p>
             <div className="hero-actions">
               <a className="button primary" href="#projects">
                 查看作品 <ChevronRight size={18} />

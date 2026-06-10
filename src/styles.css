@@ -199,6 +199,21 @@ h3 {
   line-height: 1.8;
 }
 
+.hero-contact-note {
+  width: fit-content;
+  max-width: 680px;
+  margin-top: -4px;
+  border-left: 2px solid var(--primary);
+  padding-left: 12px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.hero-contact-note strong {
+  color: var(--text);
+}
+
 .hero-actions,
 .heading-actions {
   display: flex;
