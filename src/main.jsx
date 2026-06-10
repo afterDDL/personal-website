@@ -541,18 +541,40 @@ function App() {
           </div>
 
           <div className="talent-intro">
-            <div>
+            <div className="talent-intro-copy">
               <span className="project-index">02 / Talent Intelligence</span>
-              <h3>找到关键词之外，真正值得被看见的人。</h3>
-              <p>
-                在真实的招聘实习中，我发现传统关键词筛选简历难以理解不同岗位、技术路线和行业经历背后相通的任务与能力的困境，既容易漏掉具备迁移潜力的人才，也可能放入只有关键词却缺少真实经验的人选。TalentBridge 基于系统化的行业与技术研究，将岗位要求和候选人经历还原为底层任务、技术机理与能力证据，识别可信的迁移关系，帮助 HR 找回漏选人才，并通过人工复核、招聘进展回填和效果复盘，完成从岗位理解到招聘结果验证的业务闭环。
-              </p>
+              <h3>从关键词命中，走向能力证据与招聘结果验证。</h3>
+              <p>TalentBridge 不是替 HR 做决定，而是把容易被忽略的迁移关系变成可解释、可复核、可验证的招聘判断。</p>
             </div>
             <dl>
               <div><dt>场景</dt><dd>中高端社招 / 陌生行业猎聘</dd></div>
               <div><dt>角色</dt><dd>独立产品设计与全栈实现</dd></div>
               <div><dt>技术</dt><dd>Node.js · OpenAI / DeepSeek · Railway</dd></div>
             </dl>
+          </div>
+
+          <div className="talent-story" aria-label="TalentBridge 产品逻辑">
+            <article>
+              <span>01 · Problem</span>
+              <h3>关键词无法代表真实能力</h3>
+              <p>
+                在真实的招聘实习中，我发现传统关键词筛选简历难以理解不同岗位、技术路线和行业经历背后相通的任务与能力的困境，既容易漏掉具备迁移潜力的人才，也可能放入只有关键词却缺少真实经验的人选。
+              </p>
+            </article>
+            <article>
+              <span>02 · Approach</span>
+              <h3>还原任务、机理与证据</h3>
+              <p>
+                TalentBridge 基于系统化的行业与技术研究，将岗位要求和候选人经历还原为底层任务、技术机理与能力证据，识别可信的迁移关系，帮助 HR 找回漏选人才。
+              </p>
+            </article>
+            <article>
+              <span>03 · Validation</span>
+              <h3>让判断回到招聘结果</h3>
+              <p>
+                通过人工复核、招聘进展回填和效果复盘，完成从岗位理解到招聘结果验证的业务闭环。
+              </p>
+            </article>
           </div>
 
           <figure className="talent-carousel">

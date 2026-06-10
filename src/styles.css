@@ -822,12 +822,11 @@ h3 {
 
 .talent-intro {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
-  gap: 56px;
-  align-items: end;
+  grid-template-columns: minmax(0, 1.45fr) minmax(280px, 0.55fr);
+  gap: 64px;
+  align-items: start;
   border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  padding: 34px 0;
+  padding: 38px 0 30px;
 }
 
 .project-index {
@@ -841,18 +840,18 @@ h3 {
 }
 
 .talent-intro h3 {
-  max-width: 720px;
+  max-width: 800px;
   margin: 0 0 16px;
-  font-size: clamp(28px, 4vw, 46px);
-  line-height: 1.12;
+  font-size: clamp(32px, 4.5vw, 54px);
+  line-height: 1.08;
 }
 
 .talent-intro p {
-  max-width: 760px;
+  max-width: 720px;
   margin: 0;
   color: var(--muted);
-  font-size: 17px;
-  line-height: 1.8;
+  font-size: 18px;
+  line-height: 1.72;
 }
 
 .talent-intro dl {
@@ -885,9 +884,45 @@ h3 {
   line-height: 1.5;
 }
 
+.talent-story {
+  display: grid;
+  grid-template-columns: 1.1fr 1.1fr 0.8fr;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.talent-story article {
+  min-width: 0;
+  padding: 28px 26px 30px 0;
+}
+
+.talent-story article + article {
+  border-left: 1px solid var(--line);
+  padding-left: 26px;
+}
+
+.talent-story span {
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 760;
+}
+
+.talent-story h3 {
+  margin: 13px 0 12px;
+  font-size: 21px;
+  line-height: 1.25;
+}
+
+.talent-story p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
 .talent-carousel {
   overflow: hidden;
-  margin: 28px 0 0;
+  margin: 30px 0 0;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--surface);
@@ -1495,6 +1530,20 @@ h3 {
     align-items: start;
   }
 
+  .talent-story {
+    grid-template-columns: 1fr;
+  }
+
+  .talent-story article {
+    padding: 24px 0;
+  }
+
+  .talent-story article + article {
+    border-top: 1px solid var(--line);
+    border-left: 0;
+    padding-left: 0;
+  }
+
   .talent-result-strip {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -1589,6 +1638,14 @@ h3 {
 
   .talent-intro h3 {
     font-size: 29px;
+  }
+
+  .talent-intro p {
+    font-size: 16px;
+  }
+
+  .talent-story h3 {
+    font-size: 20px;
   }
 
   .talent-screen img {
