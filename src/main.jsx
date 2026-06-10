@@ -616,13 +616,6 @@ function App() {
             </figcaption>
           </figure>
 
-          <div className="talent-result-strip">
-            <div><strong>8</strong><span>示例候选人</span></div>
-            <div><strong>3</strong><span>AI 增量找回</span></div>
-            <div><strong>40% → 100%</strong><span>人工标注样本召回率</span></div>
-            <p>演示数据用于验证产品逻辑，不代表真实业务效果承诺。</p>
-          </div>
-
           <div className="highlight-grid talent-highlights">
             {talentHighlights.map(({ icon: Icon, title, text }) => (
               <article className="highlight-card" key={title}>
