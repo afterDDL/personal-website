@@ -67,8 +67,7 @@ const server = http.createServer((request, response) => {
   const overflow = await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth);
   console.log("mobile horizontal overflow", overflow);
 
-  const downloadHref = await page.locator('a[download]').first().getAttribute("href");
-  console.log("download href", downloadHref);
+  console.log("download links", await page.locator('a[download]').count());
   await browser.close();
   if (ownsServer) server.close();
 })().catch((error) => {

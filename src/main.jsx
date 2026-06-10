@@ -8,7 +8,6 @@ import {
   ChevronRight,
   CircleUserRound,
   Copy,
-  Download,
   ExternalLink,
   Github,
   GraduationCap,
@@ -26,7 +25,6 @@ import {
 } from 'lucide-react';
 import './styles.css';
 
-const RESUME_URL = '/assets/nina-shi-resume.pdf';
 const REPORT_URL = '/assets/speakeasy-report.pdf';
 const EMAIL = '1246012616@qq.com';
 const WECHAT = 'Summer1Xn025';
@@ -289,9 +287,6 @@ function App() {
             <div className="hero-actions">
               <a className="button primary" href="#projects">
                 查看作品 <ChevronRight size={18} />
-              </a>
-              <a className="button secondary" href={RESUME_URL} download>
-                下载简历 <Download size={17} />
               </a>
             </div>
           </div>
@@ -636,9 +631,6 @@ function App() {
               <p className="eyebrow">Timeline</p>
               <h2>从经济学训练到 AI 产品实践的能力迁移。</h2>
             </div>
-            <a className="button primary compact" href={RESUME_URL} download>
-              下载 PDF 简历 <Download size={16} />
-            </a>
           </div>
           <div className="timeline">
             {timeline.map((item, index) => (
