@@ -529,6 +529,14 @@ function App() {
               >
                 在线体验 <ExternalLink size={16} />
               </a>
+              <a
+                className="button ghost compact"
+                href="https://github.com/afterDDL/talentbridge"
+                target="_blank"
+                rel="noreferrer"
+              >
+                GitHub <Github size={16} />
+              </a>
             </div>
           </div>
 
