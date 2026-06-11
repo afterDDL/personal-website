@@ -132,25 +132,25 @@ const talentActions = [
     icon: BriefcaseBusiness,
     label: '岗位建模',
     title: '把 JD 转成可校准的能力标准',
-    text: '支持 HR 输入 JD 与业务理解，由 AI 拆解岗位任务、关键能力、必须项和可接受的相邻经历。',
+    text: '拆解岗位任务、关键能力、必须项与相邻经历。',
   },
   {
     icon: PanelsTopLeft,
     label: '候选人分析',
     title: '从五个维度识别迁移可能',
-    text: '围绕业务目标、工作对象、方法工具、任务复杂度与个人责任分析经历，并区分事实、推断和待验证信息。',
+    text: '分析业务目标、工作对象、方法工具、复杂度与个人责任。',
   },
   {
     icon: Building2,
     label: '企业研究',
     title: '补足候选人原司的业务背景',
-    text: '整合公开资料，识别集团、子公司、事业部、品牌与别名关系，判断其产品和技术背景与目标岗位的关联。',
+    text: '识别企业主体、产品与技术背景，辅助判断岗位关联。',
   },
   {
     icon: ShieldCheck,
     label: '业务工作流',
     title: '兼顾隐私、复核与结果沉淀',
-    text: '实现简历本地解析、自动脱敏、人工复核、招聘进度回填和岗位知识库，让 AI 判断进入真实招聘流程。',
+    text: '支持本地解析、自动脱敏、人工复核与招聘进度回填。',
   },
 ];
 
@@ -570,16 +570,16 @@ function App() {
           <div className="talent-brief" aria-label="TalentBridge 项目背景与目标">
             <article>
               <span>Project Background</span>
-              <h3>传统 ATS 看到了词，却难以理解项目经历。</h3>
+              <h3>关键词筛选难以识别能力迁移</h3>
               <p>
-                传统 ATS 主要依赖岗位名称和关键词筛选，难以理解中高端人才被高度概括的项目经历，也无法识别相邻技术路线之间的能力迁移关系，容易漏掉高潜候选人，并增加 HR 人工筛选与企业背景调查成本。
+                传统 ATS 难以理解高度概括的项目经历与相邻技术路线，容易漏掉高潜人才，也增加 HR 的人工筛选成本。
               </p>
             </article>
             <article>
               <span>Project Goal</span>
-              <h3>把筛选标准从词汇一致升级为问题与能力相通。</h3>
+              <h3>从词汇匹配升级为能力判断</h3>
               <p>
-                辅助 HR 识别“是否解决过相似问题、能力能否迁移”，并将人才识别、人工复核、招聘进展与效果验证连接为一套可持续优化的产品流程。
+                判断候选人是否解决过相似问题、能力能否迁移，并连接人才识别、人工复核与招聘结果验证。
               </p>
             </article>
           </div>
@@ -587,8 +587,8 @@ function App() {
           <div className="talent-action-section">
             <div className="talent-subheading">
               <span>Core Actions</span>
-              <h3>从岗位研究到招聘回填，把 AI 能力嵌进完整业务流程。</h3>
-              <p>使用 Codex 完成 PRD、交互设计与技术实现，基于 React 搭建前端并接入 DeepSeek。</p>
+              <h3>四个关键能力模块</h3>
+              <p>Codex 辅助完成 PRD、交互与开发，React 前端接入 DeepSeek。</p>
             </div>
             <div className="talent-action-grid">
               {talentActions.map(({ icon: Icon, label, title, text }) => (
