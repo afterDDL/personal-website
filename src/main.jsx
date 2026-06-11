@@ -4,6 +4,7 @@ import {
   ArrowUpRight,
   BookOpen,
   BriefcaseBusiness,
+  Building2,
   Check,
   ChevronRight,
   CircleUserRound,
@@ -18,6 +19,9 @@ import {
   Mic2,
   Moon,
   PanelsTopLeft,
+  RefreshCw,
+  Search,
+  ShieldCheck,
   Sparkles,
   Sun,
   Send,
@@ -120,25 +124,37 @@ const talentScreens = [
   { title: '岗位能力校准', src: '/assets/talentbridge-calibration.png', note: '把 JD 与招聘经理的隐性判断转化为可编辑、可复用的岗位能力模型。' },
   { title: '人才复核队列', src: '/assets/talentbridge-queue.png', note: '按证据强度和迁移价值组织候选人，并明确区分 ATS 命中与 AI 新找回。' },
   { title: 'ATS 与 AI 效果评估', src: '/assets/talentbridge-evaluation.png', note: '使用独立人工标注计算召回率、精确率和复核成本，避免 AI 自证效果。' },
+  { title: 'AI 寻访策略', src: '/assets/talentbridge-sourcing.png', note: '从正向招聘结果反向生成技术词、相邻岗位、目标公司与布尔搜索组合。' },
 ];
 
-const talentHighlights = [
+const talentActions = [
   {
-    icon: Workflow,
-    title: '能力迁移模型',
-    text: '不只匹配岗位关键词，而是从业务任务、工作方法、问题复杂度、责任范围和结果证据五个维度理解候选人。',
+    icon: BriefcaseBusiness,
+    label: '岗位建模',
+    title: '把 JD 转成可校准的能力标准',
+    text: '支持 HR 输入 JD 与业务理解，由 AI 拆解岗位任务、关键能力、必须项和可接受的相邻经历。',
   },
   {
     icon: PanelsTopLeft,
-    title: '可解释 AI 判断',
-    text: '将简历事实、AI 推断和待验证信息分开呈现，每项建议都能回到证据、缺口与验证问题。',
+    label: '候选人分析',
+    title: '从五个维度识别迁移可能',
+    text: '围绕业务目标、工作对象、方法工具、任务复杂度与个人责任分析经历，并区分事实、推断和待验证信息。',
   },
   {
-    icon: Check,
-    title: '人机共同决策',
-    text: 'AI 负责扩大召回、排序和解释，最终联系、保留或淘汰仍由招聘人员完成。',
+    icon: Building2,
+    label: '企业研究',
+    title: '补足候选人原司的业务背景',
+    text: '整合公开资料，识别集团、子公司、事业部、品牌与别名关系，判断其产品和技术背景与目标岗位的关联。',
+  },
+  {
+    icon: ShieldCheck,
+    label: '业务工作流',
+    title: '兼顾隐私、复核与结果沉淀',
+    text: '实现简历本地解析、自动脱敏、人工复核、招聘进度回填和岗位知识库，让 AI 判断进入真实招聘流程。',
   },
 ];
+
+const talentLoop = ['岗位理解', '候选人分析', '人工决策', '结果回填', '效果复盘', '策略优化'];
 
 const reportMetrics = [
   { label: '综合评分', value: '6.5' },
@@ -542,37 +558,48 @@ function App() {
             <div className="talent-intro-copy">
               <span className="project-index">02 / Talent Intelligence</span>
               <h3>从关键词命中，走向能力证据与招聘结果验证。</h3>
-              <p>TalentBridge 不是替 HR 做决定，而是把容易被忽略的迁移关系变成可解释、可复核、可验证的招聘判断。</p>
+              <p>独立设计并搭建面向中高端人才招聘的 Web MVP，让 AI 不只判断“关键词是否一致”，而是理解候选人是否解决过相似问题、能力能否迁移。</p>
             </div>
             <dl>
               <div><dt>场景</dt><dd>中高端社招 / 陌生行业猎聘</dd></div>
               <div><dt>角色</dt><dd>独立产品设计与全栈实现</dd></div>
-              <div><dt>技术</dt><dd>Node.js · OpenAI / DeepSeek · Railway</dd></div>
+              <div><dt>技术</dt><dd>React · DeepSeek · Node.js · Railway</dd></div>
             </dl>
           </div>
 
-          <div className="talent-story" aria-label="TalentBridge 产品逻辑">
+          <div className="talent-brief" aria-label="TalentBridge 项目背景与目标">
             <article>
-              <span>01 · Problem</span>
-              <h3>关键词无法代表真实能力</h3>
+              <span>Project Background</span>
+              <h3>传统 ATS 看到了词，却难以理解项目经历。</h3>
               <p>
-                在真实的招聘实习中，我发现传统关键词筛选简历难以理解不同岗位、技术路线和行业经历背后相通的任务与能力的困境，既容易漏掉具备迁移潜力的人才，也可能放入只有关键词却缺少真实经验的人选。
+                传统 ATS 主要依赖岗位名称和关键词筛选，难以理解中高端人才被高度概括的项目经历，也无法识别相邻技术路线之间的能力迁移关系，容易漏掉高潜候选人，并增加 HR 人工筛选与企业背景调查成本。
               </p>
             </article>
             <article>
-              <span>02 · Approach</span>
-              <h3>还原任务、机理与证据</h3>
+              <span>Project Goal</span>
+              <h3>把筛选标准从词汇一致升级为问题与能力相通。</h3>
               <p>
-                TalentBridge 基于系统化的行业与技术研究，将岗位要求和候选人经历还原为底层任务、技术机理与能力证据，识别可信的迁移关系，帮助 HR 找回漏选人才。
+                辅助 HR 识别“是否解决过相似问题、能力能否迁移”，并将人才识别、人工复核、招聘进展与效果验证连接为一套可持续优化的产品流程。
               </p>
             </article>
-            <article>
-              <span>03 · Validation</span>
-              <h3>让判断回到招聘结果</h3>
-              <p>
-                通过人工复核、招聘进展回填和效果复盘，完成从岗位理解到招聘结果验证的业务闭环。
-              </p>
-            </article>
+          </div>
+
+          <div className="talent-action-section">
+            <div className="talent-subheading">
+              <span>Core Actions</span>
+              <h3>从岗位研究到招聘回填，把 AI 能力嵌进完整业务流程。</h3>
+              <p>使用 Codex 完成 PRD、交互设计与技术实现，基于 React 搭建前端并接入 DeepSeek。</p>
+            </div>
+            <div className="talent-action-grid">
+              {talentActions.map(({ icon: Icon, label, title, text }) => (
+                <article key={title}>
+                  <Icon size={21} />
+                  <span>{label}</span>
+                  <h4>{title}</h4>
+                  <p>{text}</p>
+                </article>
+              ))}
+            </div>
           </div>
 
           <figure className="talent-carousel">
@@ -614,14 +641,42 @@ function App() {
             </figcaption>
           </figure>
 
-          <div className="highlight-grid talent-highlights">
-            {talentHighlights.map(({ icon: Icon, title, text }) => (
-              <article className="highlight-card" key={title}>
-                <Icon size={22} />
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </article>
-            ))}
+          <div className="talent-outcome">
+            <div className="talent-outcome-heading">
+              <span>Project Outcome</span>
+              <h3>产品已跑通从人才识别到下一轮寻访优化的完整闭环。</h3>
+              <p>通过证据分级限制 AI 过度推断，自动生成待验证问题与面试追问，并用真实招聘进展持续检验筛选判断。</p>
+            </div>
+
+            <div className="talent-loop" aria-label="TalentBridge 招聘业务闭环">
+              {talentLoop.map((step, index) => (
+                <React.Fragment key={step}>
+                  <span>{step}</span>
+                  {index < talentLoop.length - 1 && <ChevronRight size={16} aria-hidden="true" />}
+                </React.Fragment>
+              ))}
+            </div>
+
+            <article className="sourcing-output">
+              <div className="sourcing-output-icon">
+                <RefreshCw size={24} />
+              </div>
+              <div className="sourcing-output-copy">
+                <span>New Feature · Reverse Sourcing</span>
+                <h3>把有效招聘结果，反向变成下一轮找人的策略。</h3>
+                <p>系统根据 HR 复核及联系、面试、Offer 等招聘结果，提炼已验证的共同特征，减少每轮寻访都从零开始。</p>
+              </div>
+              <div className="sourcing-output-list">
+                <span><Search size={16} /> 有效技术关键词</span>
+                <span><CircleUserRound size={16} /> 相邻岗位</span>
+                <span><Building2 size={16} /> 目标公司</span>
+                <span><Workflow size={16} /> 布尔搜索组合</span>
+              </div>
+            </article>
+
+            <p className="talent-validation-note">
+              持续以有效找回率、联系率、面试率及 Offer 转化率验证筛选与寻访策略。
+            </p>
           </div>
         </section>
 
