@@ -9,6 +9,7 @@ import {
   ChevronRight,
   CircleUserRound,
   Copy,
+  Download,
   ExternalLink,
   Github,
   GraduationCap,
@@ -30,8 +31,9 @@ import {
 import './styles.css';
 
 const REPORT_URL = '/assets/speakeasy-report.pdf';
+const RESUME_URL = '/assets/nina-shi-resume.pdf';
 const EMAIL = '1246012616@qq.com';
-const WECHAT = 'Summer1Xn025';
+const WECHAT = '15207727769';
 const MESSAGES_KEY = 'nina-shi-guestbook';
 const SITE_LIKES_KEY = 'nina-shi-site-likes';
 
@@ -45,39 +47,39 @@ const navItems = [
 
 const timeline = [
   {
-    year: '2023 - 至今',
+    year: '2023.09 - 2027.06',
     title: '经济学训练',
     place: '吉林大学 · 经济学专业',
     tag: 'Structured Thinking',
-    text: '系统学习统计学、计量经济学、宏微观经济学、金融学等课程，形成用数据、结构和约束条件理解问题的基础方法。',
+    text: '在经济学训练中形成用数据、结构和约束条件理解问题的方法；雅思 7 分、大学英语六级，可使用英文资料开展研究与日常工作。',
   },
   {
-    year: '2025',
-    title: '行业研究实习',
-    place: '光大证券研究所 / 开源证券研究所',
+    year: '2025.07 - 2025.11',
+    title: '汽车行业研究实习',
+    place: '开源证券研究所 · 汽车组',
     tag: 'Industry Research',
-    text: '参与能源、汽车行业研究，覆盖中煤能源、敏实集团、吉利汽车等公司，完成 3 篇个股深度报告相关研究与底稿整理，训练信息搜集、逻辑拆解和商业判断能力。',
+    text: '参与敏实集团、吉利汽车等上市公司深度研究，从竞争格局、经营数据、产业链、技术壁垒与车型等维度完成分析，并参与盈利预测、估值及深度报告撰写。',
   },
   {
-    year: '2025',
-    title: 'AI 工具与数据分析实践',
-    place: '丽兹行豪宅研究院',
-    tag: 'AI-assisted Research',
-    text: '使用 AI 工具、Excel、ThinkCell、Jupyter 等完成海内外竞对分析、数据可视化和战略可行性判断。',
-  },
-  {
-    year: '2026',
+    year: '2026.02 - 2026.04',
     title: 'AI 芯片招聘方向实习',
     place: '理想汽车北京研发总部',
     tag: 'Talent Mapping',
-    text: '梳理半导体产业链人才图谱，进行竞对组织研究、人才 Mapping 和候选人建联，理解技术岗位、产业结构和组织需求。',
+    text: '围绕 AI 芯片业务开展半导体人才 Mapping，梳理竞对、目标公司与核心岗位人才分布；在无具体 JD 的情况下推进高端岗位候选人 20+，建联成功率 70%。',
   },
   {
     year: '2026',
     title: 'MCM 建模竞赛与 AI 产品实践',
     place: 'MCM H 奖 / SpeakEasy / TalentBridge',
     tag: 'Product Building',
-    text: '获得美国大学生数学建模竞赛 H 奖，负责 Python 数据处理、仿真与可视化；随后独立完成 SpeakEasy 与 TalentBridge，从学习场景和招聘场景出发完成产品设计、开发、部署与验证。',
+    text: '获得美国大学生数学建模竞赛 H 奖，负责 Python 数据处理、建模仿真与可视化；独立完成 SpeakEasy 与 TalentBridge 两个 AI Web MVP 的需求分析、产品设计、开发与部署。',
+  },
+  {
+    year: '2026.06 - 至今',
+    title: 'AI 产品经理实习',
+    place: '安哲科技 · 嘴替键盘项目组',
+    tag: 'AI Product Delivery',
+    text: '围绕 C 端 AI 聊天回复体验，设计 5 个场景化模板并主持样本评测，各模板内部可用率均达到 90%+；负责截图回复功能从 Prompt、Figma 交互到研发交付的全流程，并主导重构 Onboarding、上线使用文档，参与冷启动渠道与裂变玩法验证。',
   },
 ];
 
@@ -163,13 +165,13 @@ const reportMetrics = [
   { label: '报告页数', value: '4 页' },
 ];
 
-const tools = ['Coze', 'DeepSeek', '墨刀', 'Codex', 'React', 'Vite', 'Cloudflare Pages', 'Python'];
+const tools = ['Figma', 'HTML Prototype', 'Codex', 'Hermes', 'Git / GitHub', 'Python', 'Office', '飞书', 'Wind', 'iFinD'];
 
 const profileSignals = [
-  { label: 'University', value: '吉林大学 · 985', detail: 'Economics · 2023' },
-  { label: 'Language', value: 'IELTS 7.0', detail: '英语可作为工作语言' },
-  { label: 'Research', value: '行业研究 / 数据分析', detail: '证券研究所 · 市场调研' },
-  { label: 'Builder Stack', value: 'AI + Product + Frontend', detail: 'PRD · Prototype · React' },
+  { label: 'Current', value: '安哲科技 · 嘴替键盘', detail: 'AI 产品经理实习生 · 2026.06+' },
+  { label: 'AI Reply', value: '5 类场景化模板', detail: '内部评测可用率 90%+' },
+  { label: 'Delivery', value: '方案 → 设计 → 上线', detail: 'Prompt · Figma · PR' },
+  { label: 'Foundation', value: '吉林大学 · 经济学', detail: 'IELTS 7.0 · MCM H 奖' },
 ];
 
 function App() {
@@ -266,7 +268,7 @@ function App() {
       <header className="site-header">
         <a className="brand" href="#home" aria-label="回到首页">
           <span>Nina Shi</span>
-          <small>AI Product Builder</small>
+          <small>AI Product Manager &amp; Builder</small>
         </a>
         <nav className="desktop-nav" aria-label="主导航">
           {navItems.map((item) => (
@@ -289,20 +291,23 @@ function App() {
       <main>
         <section className="hero section" id="home">
           <div className="hero-copy reveal">
-            <p className="eyebrow">AI Product Builder · Economics Lens</p>
+            <p className="eyebrow">AI Product Manager · Product Builder</p>
             <h1>
-              从用户问题出发，
-              <span>独立构建 AI 产品</span>
+              把真实沟通问题，
+              <span>做成可验证的 AI 体验</span>
             </h1>
             <p className="hero-text">
-              我是石夏宁 Nina Shi，吉林大学经济学专业学生。关注真实学习场景中的低效环节，并尝试用 AI、产品设计和前端实现，把想法做成可被使用和验证的产品。
+              我是石夏宁 Nina Shi，吉林大学经济学专业学生，现于安哲科技嘴替键盘项目组担任 AI 产品经理实习生。关注 AI 回复、学习与招聘场景，从需求拆解、Prompt 与交互设计一路推进到研发交付和效果验证。
             </p>
             <p className="hero-contact-note">
-              需要我的完整简历或更多项目细节，请添加微信 <strong>{WECHAT}</strong> 并说明来意。
+              最新简历已更新至 2026 年 8 月；需要更多项目细节，欢迎添加微信 <strong>{WECHAT}</strong> 并说明来意。
             </p>
             <div className="hero-actions">
               <a className="button primary" href="#projects">
                 查看作品 <ChevronRight size={18} />
+              </a>
+              <a className="button ghost" href={RESUME_URL} download="石夏宁简历-260818.pdf">
+                下载最新简历 <Download size={18} />
               </a>
             </div>
           </div>
@@ -314,8 +319,8 @@ function App() {
               </div>
               <div>
                 <p>石夏宁 · Nina Shi</p>
-                <strong>AI Product Builder</strong>
-                <span>Economics Lens</span>
+                <strong>AI Product Manager &amp; Builder</strong>
+                <span>Economics × Product × AI</span>
               </div>
             </div>
             <div className="signal-list">
@@ -352,10 +357,10 @@ function App() {
           <div className="about-layout">
             <div className="about-copy">
               <p>
-                我关注真实学习场景中的低效环节，并尝试用 AI、产品设计和前端实现，把想法做成可被使用和验证的产品。经济学训练让我习惯先拆解约束、变量和激励，行业研究经历让我更重视证据、结构和结论的可解释性。
+                我关注 AI 如何进入真实沟通、学习与招聘流程。现在，我在嘴替键盘项目组围绕 AI 回复体验工作：把模糊的聊天需求拆成可评测的场景模板，也把截图回复、首次引导和使用文档从方案推进到上线。
               </p>
               <p>
-              我是在真实业务场景中逐渐意识到 AI 的潜力的：它不只是提高效率的工具，也可以改变一个人学习、搜索、判断和表达的方式。对我来说，做 AI 产品不是追热点，而是把生活里反复出现的低效环节重新拆开，找到可以被 AI 放大的部分，再把它做成真正可用的体验。
+                经济学和行业研究训练让我重视结构、证据与结果的可解释性；AI 产品实践则让我习惯用样本评测、失败案例和用户反馈持续迭代。对我来说，做产品就是把问题讲清楚、把协作推进下去，再用真实结果检验判断。
               </p>
               <div className="tool-cloud">
                 {tools.map((tool) => (
@@ -684,14 +689,17 @@ function App() {
           <div className="section-heading split-heading">
             <div>
               <p className="eyebrow">Timeline</p>
-              <h2>从经济学训练到 AI 产品实践的能力迁移。</h2>
+              <h2>从研究、招聘到 AI 产品交付的能力迁移。</h2>
             </div>
+            <a className="button secondary compact" href={RESUME_URL} download="石夏宁简历-260818.pdf">
+              下载最新版简历 <Download size={16} />
+            </a>
           </div>
           <div className="timeline">
             {timeline.map((item, index) => (
               <article className="timeline-item" key={`${item.year}-${item.title}`}>
                 <div className="timeline-marker">
-                  {index === 0 ? <BookOpen size={18} /> : index === 4 ? <Sparkles size={18} /> : <BriefcaseBusiness size={18} />}
+                  {index === 0 ? <BookOpen size={18} /> : index === timeline.length - 1 ? <Sparkles size={18} /> : <BriefcaseBusiness size={18} />}
                 </div>
                 <div className="timeline-content">
                   <div className="timeline-topline">
@@ -721,6 +729,11 @@ function App() {
               <a className="contact-link" href="https://github.com/afterDDL" target="_blank" rel="noreferrer">
                 <Github size={18} />
                 <span>github.com/afterDDL</span>
+                <ArrowUpRight size={16} />
+              </a>
+              <a className="contact-link" href={RESUME_URL} download="石夏宁简历-260818.pdf">
+                <Download size={18} />
+                <span>下载最新版简历</span>
                 <ArrowUpRight size={16} />
               </a>
               <button className="contact-link" type="button" onClick={() => copyText(WECHAT, 'wechat')}>
