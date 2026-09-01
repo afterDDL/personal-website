@@ -376,6 +376,109 @@ function App() {
         </section>
 
         <section className="section projects" id="projects">
+          <div className="blueprint-feature">
+            <div className="section-heading blueprint-heading">
+              <p className="eyebrow">Featured Project · Agent Product</p>
+              <p className="blueprint-name">Shared Blueprint｜共享蓝图</p>
+              <h2>让人与 AI 看着同一套 Agent 结构工作。</h2>
+            </div>
+
+            <div className="talent-intro blueprint-intro">
+              <div className="talent-intro-copy blueprint-intro-copy">
+                <p>当 Agent 开始拥有不同的能力、规则、Skill 和协作 Agent，仅靠 Conversation 已经很难让用户回答一个基本问题：我现在正在构建的 Agent，究竟是什么？</p>
+                <p>Shared Blueprint 将 Agent 映射成一套人与 AI 都能看到、选择和讨论的结构，让自然语言创建 Agent 的过程保持可理解、可控制。</p>
+                <p className="blueprint-taxonomy">ROLE · PURPOSE · CAPABILITIES · RULES · OUTPUT</p>
+                <div className="heading-actions blueprint-actions">
+                  <a
+                    className="button secondary compact"
+                    href="https://afterddl.github.io/dsh-creator-shared-blueprint/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Live Demo <ExternalLink size={16} />
+                  </a>
+                  <a
+                    className="button ghost compact"
+                    href="https://github.com/afterDDL/dsh-creator-shared-blueprint"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    GitHub <Github size={16} />
+                  </a>
+                </div>
+              </div>
+              <dl>
+                <div><dt>ROLE</dt><dd>Independent Product Builder</dd></div>
+                <div><dt>SCOPE</dt><dd>Product · Interaction · Implementation</dd></div>
+                <div><dt>BUILT ON</dt><dd>DeepSeek Harness</dd></div>
+                <div><dt>STATUS</dt><dd>Interactive Preview</dd></div>
+              </dl>
+            </div>
+
+            <figure className="blueprint-media blueprint-wide-media">
+              <img src="/assets/01_blueprint_ready.png" alt="Shared Blueprint Creator 对话与完整 Agent Blueprint 界面" loading="lazy" />
+            </figure>
+
+            <div className="talent-action-section blueprint-interaction">
+              <div className="talent-subheading">
+                <span>INTERACTION MODEL</span>
+                <h3>对话负责表达意图，Blueprint 负责让 Agent 的状态始终可见。</h3>
+                <p>用户可以直接选择 Blueprint 中的真实节点，让对话获得明确的讨论对象。需要修改时，AI 不直接改写 Agent，而是先形成 Proposal，再由用户决定是否 Apply。</p>
+              </div>
+              <div className="talent-action-grid blueprint-step-grid">
+                <article>
+                  <span>01 SELECT</span>
+                  <h4>选择真实 Blueprint 节点</h4>
+                </article>
+                <article>
+                  <span>02 DISCUSS</span>
+                  <h4>围绕当前状态精准讨论</h4>
+                </article>
+                <article>
+                  <span>03 PROPOSE</span>
+                  <h4>将修改意图转成明确 Proposal</h4>
+                </article>
+                <article>
+                  <span>04 APPLY</span>
+                  <h4>用户确认后才真正生效</h4>
+                </article>
+              </div>
+            </div>
+
+            <figure className="blueprint-media blueprint-wide-media">
+              <img src="/assets/02_proposal_apply.png" alt="Shared Blueprint Proposal 与 Apply 修改流程" loading="lazy" />
+            </figure>
+
+            <div className="blueprint-runtime">
+              <div className="talent-outcome-heading">
+                <span>FROM STRUCTURE TO RUNTIME</span>
+                <h3>Blueprint 不只描述 Agent，它必须和真实运行状态保持一致。</h3>
+                <p>当用户创建 Skill、加入协作 Agent，或修改已有能力后，Blueprint 会持续反映 Agent 的当前结构；通过 Try Agent，用户还能进一步确认这些变化是否真正进入 runtime，而不是只停留在界面或配置层。</p>
+              </div>
+
+              <div className="feedback-grid blueprint-runtime-grid">
+                <figure className="blueprint-runtime-item">
+                  <div className="blueprint-media">
+                    <img src="/assets/03_skill_published.png" alt="Shared Blueprint 新增 Skill 后的结构更新" loading="lazy" />
+                  </div>
+                  <figcaption>
+                    <strong>STRUCTURE UPDATED</strong>
+                    <span>新增 Skill / 协作 Agent 后，能力变化回到同一个 Blueprint 中。</span>
+                  </figcaption>
+                </figure>
+                <figure className="blueprint-runtime-item">
+                  <div className="blueprint-media">
+                    <img src="/assets/04_try_runtime.png" alt="Shared Blueprint Try Agent runtime 验证结果" loading="lazy" />
+                  </div>
+                  <figcaption>
+                    <strong>RUNTIME VERIFIED</strong>
+                    <span>Try Agent 验证当前 Blueprint 是否与真实 Agent 组装结果一致。</span>
+                  </figcaption>
+                </figure>
+              </div>
+            </div>
+          </div>
+
           <div className="section-heading split-heading">
             <div>
               <p className="eyebrow">Case Study</p>

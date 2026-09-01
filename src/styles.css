@@ -1942,3 +1942,137 @@ h3 {
     animation-iteration-count: 1 !important;
   }
 }
+
+/* ============ Shared Blueprint | Featured Project ============ */
+
+.blueprint-feature {
+  margin-bottom: 104px;
+}
+
+.blueprint-heading {
+  max-width: 900px;
+}
+
+.blueprint-name {
+  margin: 0 0 14px;
+  color: var(--text);
+  font-size: 18px;
+  font-weight: 760;
+  line-height: 1.4;
+}
+
+.blueprint-intro-copy {
+  display: grid;
+  gap: 14px;
+}
+
+.blueprint-intro-copy > p {
+  margin: 0;
+}
+
+.blueprint-taxonomy {
+  color: var(--primary) !important;
+  font-size: 12px !important;
+  font-weight: 760;
+  letter-spacing: 0.04em;
+  line-height: 1.5 !important;
+}
+
+.blueprint-actions {
+  margin-top: 4px;
+}
+
+.blueprint-intro dl div {
+  grid-template-columns: 78px 1fr;
+}
+
+.blueprint-media {
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 24px 64px rgba(20, 24, 28, 0.12);
+}
+
+.blueprint-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.blueprint-wide-media {
+  margin-top: 36px;
+}
+
+.blueprint-interaction {
+  margin-top: 72px;
+  border-top: 1px solid var(--line);
+  padding-top: 44px;
+}
+
+.blueprint-step-grid h4 {
+  margin-bottom: 0;
+}
+
+.blueprint-interaction + .blueprint-wide-media {
+  margin-top: 36px;
+}
+
+.blueprint-runtime {
+  margin-top: 72px;
+  border-top: 1px solid var(--line);
+  padding-top: 44px;
+}
+
+.blueprint-runtime-grid {
+  margin-top: 30px;
+}
+
+.blueprint-runtime-item {
+  min-width: 0;
+  margin: 0;
+}
+
+.blueprint-runtime-item .blueprint-media {
+  box-shadow: 0 18px 42px rgba(20, 24, 28, 0.12);
+}
+
+.blueprint-runtime-item figcaption {
+  display: grid;
+  gap: 6px;
+  padding: 14px 2px 0;
+}
+
+.blueprint-runtime-item figcaption strong {
+  color: var(--primary);
+  font-size: 12px;
+  font-weight: 760;
+  letter-spacing: 0.04em;
+}
+
+.blueprint-runtime-item figcaption span {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+@media (max-width: 640px) {
+  .blueprint-feature {
+    margin-bottom: 72px;
+  }
+
+  .blueprint-name {
+    font-size: 16px;
+  }
+
+  .blueprint-interaction,
+  .blueprint-runtime {
+    margin-top: 56px;
+    padding-top: 36px;
+  }
+
+  .blueprint-wide-media {
+    margin-top: 28px;
+  }
+}
