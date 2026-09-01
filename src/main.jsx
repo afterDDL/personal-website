@@ -75,7 +75,7 @@ const timeline = [
     text: '负责 Python 数据处理、模型构建、仿真与可视化，与团队完成完整建模分析并获得 Honorable Mention。',
   },
   {
-    year: '2026.06 - 至今',
+    year: '2026.06 - 2026.08',
     title: 'AI 产品经理实习',
     place: '安哲科技 · 嘴替键盘项目组',
     tag: 'AI Product Delivery',
