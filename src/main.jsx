@@ -33,7 +33,7 @@ import './styles.css';
 const REPORT_URL = '/assets/speakeasy-report.pdf';
 const RESUME_URL = '/assets/nina-shi-resume.pdf';
 const EMAIL = '1246012616@qq.com';
-const WECHAT = '15207727769';
+const WECHAT = 'Summer1Xn025';
 const MESSAGES_KEY = 'nina-shi-guestbook';
 const SITE_LIKES_KEY = 'nina-shi-site-likes';
 
@@ -69,17 +69,17 @@ const timeline = [
   },
   {
     year: '2026',
-    title: 'MCM 建模竞赛与 AI 产品实践',
-    place: 'MCM H 奖 / SpeakEasy / TalentBridge',
-    tag: 'Product Building',
-    text: '获得美国大学生数学建模竞赛 H 奖，负责 Python 数据处理、建模仿真与可视化；独立完成 SpeakEasy 与 TalentBridge 两个 AI Web MVP 的需求分析、产品设计、开发与部署。',
+    title: 'MCM 数学建模竞赛',
+    place: '美国大学生数学建模竞赛 · H 奖',
+    tag: 'Modeling & Analysis',
+    text: '负责 Python 数据处理、模型构建、仿真与可视化，与团队完成完整建模分析并获得 Honorable Mention。',
   },
   {
     year: '2026.06 - 至今',
     title: 'AI 产品经理实习',
     place: '安哲科技 · 嘴替键盘项目组',
     tag: 'AI Product Delivery',
-    text: '围绕 C 端 AI 聊天回复体验，设计 5 个场景化模板并主持样本评测，各模板内部可用率均达到 90%+；负责截图回复功能从 Prompt、Figma 交互到研发交付的全流程，并主导重构 Onboarding、上线使用文档，参与冷启动渠道与裂变玩法验证。',
+    text: '曾参与 C 端 AI 回复产品迭代，负责场景化模板评测、截图回复与 Onboarding 等功能的设计与落地。',
   },
 ];
 
@@ -158,6 +158,39 @@ const talentActions = [
 
 const talentLoop = ['岗位理解', '候选人分析', '人工决策', '结果回填', '效果复盘', '策略优化'];
 
+const blueprintPointEditSteps = [
+  {
+    label: 'SELECT',
+    caption: '点选 Blueprint 中的具体节点',
+    src: '/assets/blueprint-point-edit-01-select.jpg',
+    alt: '选择 Shared Blueprint 中的做什么节点，并将该节点作为 Creator 上下文',
+  },
+  {
+    label: 'EDIT',
+    caption: '直接在当前节点修改内容',
+    src: '/assets/blueprint-point-edit-02-edit.jpg',
+    alt: '在 Shared Blueprint 的做什么节点中编辑新的 Purpose 内容',
+  },
+  {
+    label: 'SUBMIT',
+    caption: '局部修改意图提交回 Creator',
+    src: '/assets/blueprint-point-edit-03-submit.jpg',
+    alt: '提交针对当前 Blueprint 节点的自然语言修改并回到 Creator',
+  },
+  {
+    label: 'PROPOSAL',
+    caption: 'AI 先给出明确的变更建议',
+    src: '/assets/blueprint-point-edit-04-proposal.jpg',
+    alt: 'Creator 生成 Purpose 变更 Proposal 并等待用户确认',
+  },
+  {
+    label: 'APPLY',
+    caption: '确认后，Blueprint 更新为新的状态',
+    src: '/assets/blueprint-point-edit-05-apply.jpg',
+    alt: 'Proposal 应用后 Shared Blueprint 的 Purpose 已更新',
+  },
+];
+
 const reportMetrics = [
   { label: '综合评分', value: '6.5' },
   { label: '参考 Band', value: '7' },
@@ -168,10 +201,10 @@ const reportMetrics = [
 const tools = ['Figma', 'HTML Prototype', 'Codex', 'Hermes', 'Git / GitHub', 'Python', 'Office', '飞书', 'Wind', 'iFinD'];
 
 const profileSignals = [
-  { label: 'Current', value: '安哲科技 · 嘴替键盘', detail: 'AI 产品经理实习生 · 2026.06+' },
-  { label: 'AI Reply', value: '5 类场景化模板', detail: '内部评测可用率 90%+' },
-  { label: 'Delivery', value: '方案 → 设计 → 上线', detail: 'Prompt · Figma · PR' },
-  { label: 'Foundation', value: '吉林大学 · 经济学', detail: 'IELTS 7.0 · MCM H 奖' },
+  { label: 'University', value: '吉林大学 · 985', detail: 'Economics · 2023' },
+  { label: 'Language', value: 'IELTS 7.0', detail: '英语可作为工作语言' },
+  { label: 'AI / Agent Product', value: 'AI应用 · Agent 产品 · 模型评测', detail: '' },
+  { label: 'Builder', value: '从原型做到可运行产品', detail: 'Figma / HTML · Vibe Coding · GitHub' },
 ];
 
 function App() {
@@ -179,6 +212,7 @@ function App() {
   const [copied, setCopied] = useState('');
   const [activeScreen, setActiveScreen] = useState(0);
   const [activeTalentScreen, setActiveTalentScreen] = useState(0);
+  const [activePointEditStep, setActivePointEditStep] = useState(0);
   const [siteLikes, setSiteLikes] = useState(() => Number(localStorage.getItem(SITE_LIKES_KEY) || 0));
   const [messages, setMessages] = useState(() => {
     try {
@@ -193,6 +227,18 @@ function App() {
     document.documentElement.dataset.theme = theme;
     localStorage.setItem('theme', theme);
   }, [theme]);
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return undefined;
+    }
+    const timer = window.setInterval(() => {
+      setActivePointEditStep((current) => (
+        current + 1
+      ) % blueprintPointEditSteps.length);
+    }, 2200);
+    return () => window.clearInterval(timer);
+  }, []);
 
   const year = useMemo(() => new Date().getFullYear(), []);
 
@@ -268,7 +314,7 @@ function App() {
       <header className="site-header">
         <a className="brand" href="#home" aria-label="回到首页">
           <span>Nina Shi</span>
-          <small>AI Product Manager &amp; Builder</small>
+          <small>AI Product Builder</small>
         </a>
         <nav className="desktop-nav" aria-label="主导航">
           {navItems.map((item) => (
@@ -291,23 +337,20 @@ function App() {
       <main>
         <section className="hero section" id="home">
           <div className="hero-copy reveal">
-            <p className="eyebrow">AI Product Manager · Product Builder</p>
+            <p className="eyebrow">AI Product Builder · Economics Lens</p>
             <h1>
-              把真实沟通问题，
-              <span>做成可验证的 AI 体验</span>
+              从用户问题出发，
+              <span>独立构建 AI 产品</span>
             </h1>
             <p className="hero-text">
-              我是石夏宁 Nina Shi，吉林大学经济学专业学生，现于安哲科技嘴替键盘项目组担任 AI 产品经理实习生。关注 AI 回复、学习与招聘场景，从需求拆解、Prompt 与交互设计一路推进到研发交付和效果验证。
+              我是石夏宁 Nina Shi，吉林大学经济学专业学生。关注真实学习场景中的低效环节，并尝试用 AI、产品设计和前端实现，把想法做成可被使用和验证的产品。
             </p>
             <p className="hero-contact-note">
-              最新简历已更新至 2026 年 8 月；需要更多项目细节，欢迎添加微信 <strong>{WECHAT}</strong> 并说明来意。
+              需要我的完整简历或更多项目细节，请添加微信 <strong>{WECHAT}</strong> 并说明来意。
             </p>
             <div className="hero-actions">
               <a className="button primary" href="#projects">
                 查看作品 <ChevronRight size={18} />
-              </a>
-              <a className="button ghost" href={RESUME_URL} download="石夏宁简历-260818.pdf">
-                下载最新简历 <Download size={18} />
               </a>
             </div>
           </div>
@@ -319,8 +362,8 @@ function App() {
               </div>
               <div>
                 <p>石夏宁 · Nina Shi</p>
-                <strong>AI Product Manager &amp; Builder</strong>
-                <span>Economics × Product × AI</span>
+                <strong>AI Product Builder</strong>
+                <span>Economics Lens</span>
               </div>
             </div>
             <div className="signal-list">
@@ -330,7 +373,7 @@ function App() {
                   <div>
                     <span>{signal.label}</span>
                     <strong>{signal.value}</strong>
-                    <small>{signal.detail}</small>
+                    {signal.detail && <small>{signal.detail}</small>}
                   </div>
                 </div>
               ))}
@@ -357,7 +400,7 @@ function App() {
           <div className="about-layout">
             <div className="about-copy">
               <p>
-                我关注 AI 如何进入真实沟通、学习与招聘流程。现在，我在嘴替键盘项目组围绕 AI 回复体验工作：把模糊的聊天需求拆成可评测的场景模板，也把截图回复、首次引导和使用文档从方案推进到上线。
+                我关注 AI 怎么真正进入人的沟通、学习和工作流程。比起只停留在方案层，我更习惯把问题拆清楚，做成原型和可运行产品，再通过实际使用和评测验证。最近主要在探索 Agent 产品，以及人与 AI 应该怎样共同理解和控制越来越复杂的 Agent。
               </p>
               <p>
                 经济学和行业研究训练让我重视结构、证据与结果的可解释性；AI 产品实践则让我习惯用样本评测、失败案例和用户反馈持续迭代。对我来说，做产品就是把问题讲清楚、把协作推进下去，再用真实结果检验判断。
@@ -448,6 +491,47 @@ function App() {
             <figure className="blueprint-media blueprint-wide-media">
               <img src="/assets/02_proposal_apply.png" alt="Shared Blueprint Proposal 与 Apply 修改流程" loading="lazy" />
             </figure>
+
+            <div className="blueprint-point-edit">
+              <div className="talent-outcome-heading">
+                <span>POINT-TO-POINT EDITING</span>
+                <h3>不用重新描述整个 Agent，直接对着想改的部分说你要改什么。</h3>
+                <p>
+                  用户可以直接选择 Blueprint 中的具体节点，让当前部分成为 Creator 的明确上下文，再用自然语言继续修改；变更不会直接生效，而是先进入 Proposal，再由用户决定是否 Apply。
+                </p>
+              </div>
+
+              <div className="blueprint-point-edit-demo">
+                <figure className="blueprint-point-edit-stage">
+                  <img
+                    key={blueprintPointEditSteps[activePointEditStep].src}
+                    className="blueprint-point-edit-image"
+                    src={blueprintPointEditSteps[activePointEditStep].src}
+                    alt={blueprintPointEditSteps[activePointEditStep].alt}
+                    loading="lazy"
+                  />
+                </figure>
+
+                <div className="blueprint-point-edit-progress" aria-label="Point-to-point editing steps">
+                  {blueprintPointEditSteps.map((step, index) => (
+                    <button
+                      key={step.label}
+                      type="button"
+                      className={index === activePointEditStep ? 'active' : ''}
+                      onClick={() => setActivePointEditStep(index)}
+                      aria-pressed={index === activePointEditStep}
+                    >
+                      <span>{String(index + 1).padStart(2, '0')}</span>
+                      <strong className="blueprint-point-edit-step-name">{step.label}</strong>
+                    </button>
+                  ))}
+                </div>
+
+                <p className="blueprint-point-edit-caption" aria-live="polite">
+                  {blueprintPointEditSteps[activePointEditStep].caption}
+                </p>
+              </div>
+            </div>
 
             <div className="blueprint-runtime">
               <div className="talent-outcome-heading">

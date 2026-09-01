@@ -2076,3 +2076,145 @@ h3 {
     margin-top: 28px;
   }
 }
+
+/* ============ Shared Blueprint | Point-to-Point Editing ============ */
+
+.blueprint-point-edit {
+  margin-top: 72px;
+  border-top: 1px solid var(--line);
+  padding-top: 44px;
+}
+
+.blueprint-point-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 26px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 720;
+}
+
+.blueprint-point-flow span:nth-child(odd) {
+  color: var(--text);
+}
+
+.blueprint-point-video {
+  margin-top: 30px;
+}
+
+.blueprint-point-video video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 640px) {
+  .blueprint-point-edit {
+    margin-top: 56px;
+    padding-top: 36px;
+  }
+
+  .blueprint-point-flow {
+    gap: 8px;
+    margin-top: 22px;
+    font-size: 12px;
+  }
+
+  .blueprint-point-video {
+    margin-top: 24px;
+  }
+}
+
+/* ============ Shared Blueprint | Point-to-Point Rotator ============ */
+
+.blueprint-point-edit-demo {
+  margin-top: 30px;
+}
+
+.blueprint-point-edit-stage {
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 24px 64px rgba(20, 24, 28, 0.12);
+}
+
+.blueprint-point-edit-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  animation: blueprint-point-edit-fade 220ms ease both;
+}
+
+@keyframes blueprint-point-edit-fade {
+  from { opacity: 0.55; }
+  to { opacity: 1; }
+}
+
+.blueprint-point-edit-progress {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  margin-top: 18px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.blueprint-point-edit-progress button {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 0;
+  border-right: 1px solid var(--line);
+  padding: 12px 8px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  font: inherit;
+}
+
+.blueprint-point-edit-progress button:last-child {
+  border-right: 0;
+}
+
+.blueprint-point-edit-progress button span {
+  font-size: 11px;
+  font-weight: 760;
+}
+
+.blueprint-point-edit-progress button strong {
+  font-size: 12px;
+  font-weight: 760;
+  letter-spacing: 0.04em;
+}
+
+.blueprint-point-edit-progress button.active {
+  color: var(--primary-strong);
+  background: color-mix(in srgb, var(--primary) 7%, transparent);
+}
+
+.blueprint-point-edit-caption {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .blueprint-point-edit-progress button {
+    padding: 11px 4px;
+  }
+
+  .blueprint-point-edit-step-name {
+    display: none;
+  }
+
+  .blueprint-point-edit-caption {
+    font-size: 13px;
+  }
+}
